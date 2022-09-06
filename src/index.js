@@ -1155,31 +1155,15 @@ const initialize = async () => {
     const msgParams = {
       domain: {
         chainId: chainId.toString(),
-        name: 'Ether Mail',
-        verifyingContract: '0xCcCCccccCCCCcCCCCCCcCcCccCcCCCcCcccccccC',
-        version: '1',
+        name: 'LuckyBox',
+        verifyingContract: '0x0c77311bB85cf6C2973Eea0a5ccEa6853AF8DC59',
+        version: '1.0.0',
       },
       message: {
-        contents: 'Hello, Bob!',
-        from: {
-          name: 'Cow',
-          wallets: [
-            '0xCD2a3d9F938E13CD947Ec05AbC7FE734Df8DD826',
-            '0xDeaDbeefdEAdbeefdEadbEEFdeadbeEFdEaDbeeF',
-          ],
-        },
-        to: [
-          {
-            name: 'Bob',
-            wallets: [
-              '0xbBbBBBBbbBBBbbbBbbBbbbbBBbBbbbbBbBbbBBbB',
-              '0xB0BdaBea57B0BDABeA57b0bdABEA57b0BDabEa57',
-              '0xB0B0b0b0b0b0B000000000000000000000000000',
-            ],
-          },
-        ],
+        id: 1,
+        owner: "0x6fFFccAdff610FB123A44Fa7E9F038e82e7c009a"
       },
-      primaryType: 'Mail',
+      primaryType: 'buyTicket',
       types: {
         EIP712Domain: [
           { name: 'name', type: 'string' },
@@ -1187,21 +1171,13 @@ const initialize = async () => {
           { name: 'chainId', type: 'uint256' },
           { name: 'verifyingContract', type: 'address' },
         ],
-        Group: [
-          { name: 'name', type: 'string' },
-          { name: 'members', type: 'Person[]' },
-        ],
-        Mail: [
-          { name: 'from', type: 'Person' },
-          { name: 'to', type: 'Person[]' },
-          { name: 'contents', type: 'string' },
-        ],
-        Person: [
-          { name: 'name', type: 'string' },
-          { name: 'wallets', type: 'address[]' },
-        ],
+        buyTicket: [
+          { name: 'id', type: 'uint256' },
+          { name: 'owner', type: 'address' },
+        ]
       },
     };
+    
     try {
       const from = accounts[0];
       const sign = await ethereum.request({
@@ -1225,31 +1201,15 @@ const initialize = async () => {
     const msgParams = {
       domain: {
         chainId,
-        name: 'Ether Mail',
-        verifyingContract: '0xCcCCccccCCCCcCCCCCCcCcCccCcCCCcCcccccccC',
-        version: '1',
+        name: 'LuckyBox',
+        verifyingContract: '0x0c77311bB85cf6C2973Eea0a5ccEa6853AF8DC59',
+        version: '1.0.0',
       },
       message: {
-        contents: 'Hello, Bob!',
-        from: {
-          name: 'Cow',
-          wallets: [
-            '0xCD2a3d9F938E13CD947Ec05AbC7FE734Df8DD826',
-            '0xDeaDbeefdEAdbeefdEadbEEFdeadbeEFdEaDbeeF',
-          ],
-        },
-        to: [
-          {
-            name: 'Bob',
-            wallets: [
-              '0xbBbBBBBbbBBBbbbBbbBbbbbBBbBbbbbBbBbbBBbB',
-              '0xB0BdaBea57B0BDABeA57b0bdABEA57b0BDabEa57',
-              '0xB0B0b0b0b0b0B000000000000000000000000000',
-            ],
-          },
-        ],
+        id: 1,
+        owner: "0x6fFFccAdff610FB123A44Fa7E9F038e82e7c009a"
       },
-      primaryType: 'Mail',
+      primaryType: 'buyTicket',
       types: {
         EIP712Domain: [
           { name: 'name', type: 'string' },
@@ -1257,19 +1217,10 @@ const initialize = async () => {
           { name: 'chainId', type: 'uint256' },
           { name: 'verifyingContract', type: 'address' },
         ],
-        Group: [
-          { name: 'name', type: 'string' },
-          { name: 'members', type: 'Person[]' },
-        ],
-        Mail: [
-          { name: 'from', type: 'Person' },
-          { name: 'to', type: 'Person[]' },
-          { name: 'contents', type: 'string' },
-        ],
-        Person: [
-          { name: 'name', type: 'string' },
-          { name: 'wallets', type: 'address[]' },
-        ],
+        buyTicket: [
+          { name: 'id', type: 'uint256' },
+          { name: 'owner', type: 'address' },
+        ]
       },
     };
     try {
