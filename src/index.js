@@ -1152,18 +1152,68 @@ const initialize = async () => {
   signTypedDataV4.onclick = async () => {
     const networkId = parseInt(networkDiv.innerHTML, 10);
     const chainId = parseInt(chainIdDiv.innerHTML, 16) || networkId;
+    // buyTicket
+    // const msgParams = {
+    //   domain: {
+    //     chainId: chainId.toString(),
+    //     name: 'LuckyBox',
+    //     verifyingContract: '0x0c77311bB85cf6C2973Eea0a5ccEa6853AF8DC59',
+    //     version: '1.0.0',
+    //   },
+    //   message: {
+    //     id: 1,
+    //     owner: "0x6fFFccAdff610FB123A44Fa7E9F038e82e7c009a"
+    //   },
+    //   primaryType: 'buyTicket',
+    //   types: {
+    //     EIP712Domain: [
+    //       { name: 'name', type: 'string' },
+    //       { name: 'version', type: 'string' },
+    //       { name: 'chainId', type: 'uint256' },
+    //       { name: 'verifyingContract', type: 'address' },
+    //     ],
+    //     buyTicket: [
+    //       { name: 'id', type: 'uint256' },
+    //       { name: 'owner', type: 'address' },
+    //     ]
+    //   },
+    // };
+    // pause
+    // const msgParams = {
+    //   domain: {
+    //     chainId: chainId.toString(),
+    //     name: 'LuckyBox',
+    //     verifyingContract: '0x22395c1BcD673c850b9d60e1F4A8740D74d8Dc33',
+    //     version: '1.0.0',
+    //   },
+    //   message: {
+    //     user: "0x8519f903267C3c91F6aFEA545BEE5F79552C359a"
+    //   },
+    //   primaryType: 'pause',
+    //   types: {
+    //     EIP712Domain: [
+    //       { name: 'name', type: 'string' },
+    //       { name: 'version', type: 'string' },
+    //       { name: 'chainId', type: 'uint256' },
+    //       { name: 'verifyingContract', type: 'address' },
+    //     ],
+    //     pause: [
+    //       { name: 'user', type: 'address' },
+    //     ]
+    //   },
+    // };
+    // unpause
     const msgParams = {
       domain: {
         chainId: chainId.toString(),
         name: 'LuckyBox',
-        verifyingContract: '0x0c77311bB85cf6C2973Eea0a5ccEa6853AF8DC59',
+        verifyingContract: '0x22395c1BcD673c850b9d60e1F4A8740D74d8Dc33',
         version: '1.0.0',
       },
       message: {
-        id: 1,
-        owner: "0x6fFFccAdff610FB123A44Fa7E9F038e82e7c009a"
+        user: "0x8519f903267C3c91F6aFEA545BEE5F79552C359a"
       },
-      primaryType: 'buyTicket',
+      primaryType: 'unpause',
       types: {
         EIP712Domain: [
           { name: 'name', type: 'string' },
@@ -1171,9 +1221,8 @@ const initialize = async () => {
           { name: 'chainId', type: 'uint256' },
           { name: 'verifyingContract', type: 'address' },
         ],
-        buyTicket: [
-          { name: 'id', type: 'uint256' },
-          { name: 'owner', type: 'address' },
+        unpause: [
+          { name: 'user', type: 'address' },
         ]
       },
     };
