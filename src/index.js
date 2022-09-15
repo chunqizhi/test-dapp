@@ -1153,31 +1153,31 @@ const initialize = async () => {
     const networkId = parseInt(networkDiv.innerHTML, 10);
     const chainId = parseInt(chainIdDiv.innerHTML, 16) || networkId;
     // buyTicket
-    // const msgParams = {
-    //   domain: {
-    //     chainId: chainId.toString(),
-    //     name: 'LuckyBox',
-    //     verifyingContract: '0x0c77311bB85cf6C2973Eea0a5ccEa6853AF8DC59',
-    //     version: '1.0.0',
-    //   },
-    //   message: {
-    //     id: 1,
-    //     user: "0x6fFFccAdff610FB123A44Fa7E9F038e82e7c009a"
-    //   },
-    //   primaryType: 'buyTicket',
-    //   types: {
-    //     EIP712Domain: [
-    //       { name: 'name', type: 'string' },
-    //       { name: 'version', type: 'string' },
-    //       { name: 'chainId', type: 'uint256' },
-    //       { name: 'verifyingContract', type: 'address' },
-    //     ],
-    //     buyTicket: [
-    //       { name: 'id', type: 'uint256' },
-    //       { name: 'user', type: 'address' },
-    //     ]
-    //   },
-    // };
+    const msgParams = {
+      domain: {
+        chainId: chainId.toString(),
+        name: 'LuckyBox',
+        verifyingContract: '0x0c77311bB85cf6C2973Eea0a5ccEa6853AF8DC59',
+        version: '1.0.0',
+      },
+      message: {
+        id: 1,
+        user: "0x6fFFccAdff610FB123A44Fa7E9F038e82e7c009a"
+      },
+      primaryType: 'buyTicket',
+      types: {
+        EIP712Domain: [
+          { name: 'name', type: 'string' },
+          { name: 'version', type: 'string' },
+          { name: 'chainId', type: 'uint256' },
+          { name: 'verifyingContract', type: 'address' },
+        ],
+        buyTicket: [
+          { name: 'id', type: 'uint256' },
+          { name: 'user', type: 'address' },
+        ]
+      },
+    };
     // pause
     const msgParams = {
       domain: {
