@@ -1162,7 +1162,7 @@ const initialize = async () => {
     //   },
     //   message: {
     //     id: 1,
-    //     owner: "0x6fFFccAdff610FB123A44Fa7E9F038e82e7c009a"
+    //     user: "0x6fFFccAdff610FB123A44Fa7E9F038e82e7c009a"
     //   },
     //   primaryType: 'buyTicket',
     //   types: {
@@ -1174,34 +1174,36 @@ const initialize = async () => {
     //     ],
     //     buyTicket: [
     //       { name: 'id', type: 'uint256' },
-    //       { name: 'owner', type: 'address' },
-    //     ]
-    //   },
-    // };
-    // pause
-    // const msgParams = {
-    //   domain: {
-    //     chainId: chainId.toString(),
-    //     name: 'LuckyBox',
-    //     verifyingContract: '0x22395c1BcD673c850b9d60e1F4A8740D74d8Dc33',
-    //     version: '1.0.0',
-    //   },
-    //   message: {
-    //     user: "0x8519f903267C3c91F6aFEA545BEE5F79552C359a"
-    //   },
-    //   primaryType: 'pause',
-    //   types: {
-    //     EIP712Domain: [
-    //       { name: 'name', type: 'string' },
-    //       { name: 'version', type: 'string' },
-    //       { name: 'chainId', type: 'uint256' },
-    //       { name: 'verifyingContract', type: 'address' },
-    //     ],
-    //     pause: [
     //       { name: 'user', type: 'address' },
     //     ]
     //   },
     // };
+    // pause
+    const msgParams = {
+      domain: {
+        chainId: chainId.toString(),
+        name: 'LuckyBox',
+        verifyingContract: '0x22395c1BcD673c850b9d60e1F4A8740D74d8Dc33',
+        version: '1.0.0',
+      },
+      message: {
+        user: "0x8519f903267C3c91F6aFEA545BEE5F79552C359a",
+        deadline: "111"
+      },
+      primaryType: 'pause',
+      types: {
+        EIP712Domain: [
+          { name: 'name', type: 'string' },
+          { name: 'version', type: 'string' },
+          { name: 'chainId', type: 'uint256' },
+          { name: 'verifyingContract', type: 'address' },
+        ],
+        pause: [
+          { name: 'user', type: 'address' },
+          { name: 'deadline', type: 'uint256' },
+        ]
+      },
+    };
     // unpause
     const msgParams = {
       domain: {
@@ -1211,7 +1213,8 @@ const initialize = async () => {
         version: '1.0.0',
       },
       message: {
-        user: "0x8519f903267C3c91F6aFEA545BEE5F79552C359a"
+        user: "0x8519f903267C3c91F6aFEA545BEE5F79552C359a",
+        deadline: "111"
       },
       primaryType: 'unpause',
       types: {
@@ -1223,10 +1226,66 @@ const initialize = async () => {
         ],
         unpause: [
           { name: 'user', type: 'address' },
+          { name: 'deadline', type: 'uint256' },
         ]
       },
     };
-    
+    // updateSigner
+    const msgParams = {
+      domain: {
+        chainId: chainId.toString(),
+        name: 'LuckyBox',
+        verifyingContract: '0x5Ff61B1561b4224bAd1C7267b50faF37059Ff625',
+        version: '1.0.0',
+      },
+      message: {
+        newSigner: "0x8f17D7e3b2fE1B3238a97893D7A17e230D8743c1",
+        user: "0x8519f903267C3c91F6aFEA545BEE5F79552C359a",
+        deadline: "111"
+      },
+      primaryType: 'updateSigner',
+      types: {
+        EIP712Domain: [
+          { name: 'name', type: 'string' },
+          { name: 'version', type: 'string' },
+          { name: 'chainId', type: 'uint256' },
+          { name: 'verifyingContract', type: 'address' },
+        ],
+        updateSigner: [
+          { name: 'newSigner', type: 'address' },
+          { name: 'user', type: 'address' },
+          { name: 'deadline', type: 'uint256' },
+        ]
+      },
+    };
+    // updateRng
+    const msgParams = {
+      domain: {
+        chainId: chainId.toString(),
+        name: 'LuckyBox',
+        verifyingContract: '0x22395c1BcD673c850b9d60e1F4A8740D74d8Dc33',
+        version: '1.0.0',
+      },
+      message: {
+        randomGenerator: "0x8519f903267C3c91F6aFEA545BEE5F79552C359a",
+        user: "0x8519f903267C3c91F6aFEA545BEE5F79552C359a",
+        deadline: "111"
+      },
+      primaryType: 'updateRng',
+      types: {
+        EIP712Domain: [
+          { name: 'name', type: 'string' },
+          { name: 'version', type: 'string' },
+          { name: 'chainId', type: 'uint256' },
+          { name: 'verifyingContract', type: 'address' },
+        ],
+        updateRng: [
+          { name: 'randomGenerator', type: 'address' },
+          { name: 'user', type: 'address' },
+          { name: 'deadline', type: 'uint256' },
+        ]
+      },
+    };
     try {
       const from = accounts[0];
       const sign = await ethereum.request({
